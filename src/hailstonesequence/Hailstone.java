@@ -1,9 +1,5 @@
 package hailstonesequence;
 
-/**
- *
- * @author Sonja
- */
 public class Hailstone {
 
     private int input;
@@ -13,7 +9,7 @@ public class Hailstone {
     private int stepsCount;
 
     /**
-     *
+     * Constructor without parameters. Initializes private variables.
      */
     public Hailstone() {
         input = 1;
@@ -24,8 +20,8 @@ public class Hailstone {
     }
 
     /**
-     *
-     * @param input
+     * Calculates Hailstone sequence for given number.
+     * @param input - number for which hailstone sequence will be calculated.
      */
     public void calculate(int input) {
         if (input < 1000000) {
