@@ -4,48 +4,47 @@ public class Hailstone {
 
     private int input;
     private int number;
-    private int highest;
+    private int largest;
     private int secondLargest;
     private int stepsCount;
 
     /**
-     * Constructor without parameters. Initializes private variables.
+     * Constructor which initializes private variables.
+     *
+     * @param input - number for which Hailstone sequence will be calculated.
      */
-    public Hailstone() {
-        input = 1;
+    public Hailstone(int input) {
+        this.input = input;
         number = 1;
-        highest = 0;
+        largest = 0;
         secondLargest = 0;
         stepsCount = 0;
     }
 
     /**
-     * Calculates Hailstone sequence for given number.
-     * @param input - number for which hailstone sequence will be calculated.
+     * Calculates Hailstone sequence. First checks that input number is less
+ than 1 000 000 and then sets variables number and largest both to be
+ input. In while-loop checks with isOdd-function if current number is even
+ or odd and calculates next number depending on it. After that calls
+ checkValue-function with calculated number to decide if number is largest
+ or second largest this far. Finally increases number of steps took this
+ far.
+     *
      */
-    public void calculate(int input) {
-        if (input < 1000000) {
-            number = input;
-            highest = input;
+    public void calculate() {
+        number = input;
+        largest = input;
 
-            while (number > 1) {
+        while (number > 1) {
 
-                if (checkOdd(number)) {    // if number is odd
-                    number = 3 * number + 1;
-
-                } else {                // if number is even  
-                    number /= 2;
-                }
-
-                if (number > highest) {
-                    secondLargest = highest;
-                    highest = number;
-                } else if (number < highest && number > secondLargest) {
-                    secondLargest = number;
-                }
-
-                stepsCount++;
+            if (isOdd(number)) {    // if number is odd
+                number = 3 * number + 1;
+            } else {               // if number is even  
+                number /= 2;
             }
+
+            checkValue(number);
+            stepsCount++;
         }
     }
 
@@ -62,7 +61,7 @@ public class Hailstone {
      * @return the input number
      */
     public int getInputNumber() {
-        return number;
+        return input;
     }
 
     /**
@@ -74,13 +73,26 @@ public class Hailstone {
     }
 
     /**
-     * Checks if the rightmost bit is 1 as it is for all odd numbers in binary
-     * presentation
+     * Checks value of given number and changes largest- and/or second largest-
+     * variables accordingly.
+     * @param number 
+     */
+    private void checkValue(int number) {
+        if (number > largest) {
+            secondLargest = largest;
+            largest = number;
+        } else if (number < largest && number > secondLargest) {
+            secondLargest = number;
+        }
+    }
+
+    /**
+     * Checks if given number is odd by checking if the rightmost bit is 1.
      *
-     * @param number - 
+     * @param number - given number to be checked
      * @return true if number is odd, else false
      */
-    public static boolean checkOdd(int number) {
+    private static boolean isOdd(int number) {
         return ((number & 0x1) == 1);
     }
 }

@@ -12,8 +12,8 @@ public class Main {
         System.out.println("Please give a number:");
         int input = scanner.nextInt();
 
-        Hailstone hailstone = new Hailstone();
-        hailstone.calculate(input);
+        Hailstone hailstone = new Hailstone(input);
+        hailstone.calculate();
 
         System.out.println("The input number: " + hailstone.getInputNumber());
         System.out.println("The number of steps to number 1: " + hailstone.getSteps());
