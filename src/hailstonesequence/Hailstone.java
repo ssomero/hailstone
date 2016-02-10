@@ -23,12 +23,12 @@ public class Hailstone {
 
     /**
      * Calculates Hailstone sequence. First checks that input number is less
- than 1 000 000 and then sets variables number and largest both to be
- input. In while-loop checks with isOdd-function if current number is even
- or odd and calculates next number depending on it. After that calls
- checkValue-function with calculated number to decide if number is largest
- or second largest this far. Finally increases number of steps took this
- far.
+     * than 1 000 000 and then sets variables number and largest both to be
+     * input. In while-loop checks with isOdd-function if current number is even
+     * or odd and calculates next number depending on it. After that calls
+     * checkValue-function with calculated number to decide if number is largest
+     * or second largest this far. Finally increases number of steps took this
+     * far.
      *
      */
     public void calculate() {
@@ -75,7 +75,8 @@ public class Hailstone {
     /**
      * Checks value of given number and changes largest- and/or second largest-
      * variables accordingly.
-     * @param number 
+     *
+     * @param number
      */
     private void checkValue(int number) {
         if (number > largest) {
