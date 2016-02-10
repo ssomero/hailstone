@@ -1,5 +1,9 @@
 package hailstonesequence;
 
+/**
+ *
+ * @author Sonja
+ */
 public class Hailstone {
 
     private int input;
@@ -8,6 +12,9 @@ public class Hailstone {
     private int secondLargest;
     private int stepsCount;
 
+    /**
+     *
+     */
     public Hailstone() {
         input = 1;
         number = 1;
@@ -16,6 +23,10 @@ public class Hailstone {
         stepsCount = 0;
     }
 
+    /**
+     *
+     * @param input
+     */
     public void calculate(int input) {
         if (input < 1000000) {
             number = input;
@@ -42,14 +53,26 @@ public class Hailstone {
         }
     }
 
+    /**
+     *
+     * @return the number of steps it took to reach 1
+     */
     public int getSteps() {
         return stepsCount;
     }
 
+    /**
+     *
+     * @return the input number
+     */
     public int getInputNumber() {
         return number;
     }
 
+    /**
+     *
+     * @return second largest number in the sequence
+     */
     public int getSecondLargest() {
         return secondLargest;
     }
@@ -58,7 +81,7 @@ public class Hailstone {
      * Checks if the rightmost bit is 1 as it is for all odd numbers in binary
      * presentation
      *
-     * @param number - s
+     * @param number - 
      * @return true if number is odd, else false
      */
     public static boolean checkOdd(int number) {
